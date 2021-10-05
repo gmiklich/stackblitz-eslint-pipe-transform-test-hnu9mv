@@ -1,33 +1,7 @@
-const fs = require('fs');
-const path = require('path');
-
 module.exports = {
   root: true,
   plugins: ['@nrwl/nx'],
   overrides: [
-    {
-      files: ['*.ts', '*.tsx', '*.js', '*.jsx'],
-      rules: {
-        '@nrwl/nx/enforce-module-boundaries': [
-          'error',
-          {
-            allow: [
-              '@hxp/admin/testing',
-              '@hxp/core',
-              '@hxp/nucleus',
-              '@hxp/testing',
-              '@hxp/testing/setup-jest',
-            ],
-            depConstraints: [
-              {
-                sourceTag: '*',
-                onlyDependOnLibsWithTags: ['*'],
-              },
-            ],
-          },
-        ],
-      },
-    },
     {
       files: ['*.ts', '*.tsx'],
       extends: ['plugin:@nrwl/nx/typescript'],
@@ -37,24 +11,6 @@ module.exports = {
       files: ['*.js', '*.jsx'],
       extends: ['plugin:@nrwl/nx/javascript'],
       rules: {},
-    },
-    {
-      files: ['*.graphql'],
-      parser: 'babel-eslint',
-      rules: {
-        'graphql/required-fields': [
-          'error',
-          {
-            env: 'literal',
-            schemaString: fs.readFileSync(
-              path.resolve(__dirname, 'schema.graphql'),
-              'utf8'
-            ),
-            requiredFields: ['id'],
-          },
-        ],
-      },
-      plugins: ['graphql'],
     },
     {
       files: ['*.ts'],
@@ -111,28 +67,22 @@ module.exports = {
           {
             types: {
               Object: {
-                message:
-                  'Avoid using the `Object` type. Did you mean `object`?',
+                message: 'Avoid using the `Object` type. Did you mean `object`?',
               },
               Function: {
-                message:
-                  'Avoid using the `Function` type. Prefer a specific function type, like `() => void`.',
+                message: 'Avoid using the `Function` type. Prefer a specific function type, like `() => void`.',
               },
               Boolean: {
-                message:
-                  'Avoid using the `Boolean` type. Did you mean `boolean`?',
+                message: 'Avoid using the `Boolean` type. Did you mean `boolean`?',
               },
               Number: {
-                message:
-                  'Avoid using the `Number` type. Did you mean `number`?',
+                message: 'Avoid using the `Number` type. Did you mean `number`?',
               },
               String: {
-                message:
-                  'Avoid using the `String` type. Did you mean `string`?',
+                message: 'Avoid using the `String` type. Did you mean `string`?',
               },
               Symbol: {
-                message:
-                  'Avoid using the `Symbol` type. Did you mean `symbol`?',
+                message: 'Avoid using the `Symbol` type. Did you mean `symbol`?',
               },
             },
           },
@@ -209,9 +159,9 @@ module.exports = {
         'brace-style': ['error', '1tbs'],
         'comma-dangle': ['error', 'always-multiline'],
         'constructor-super': 'error',
-        curly: 'error',
+        'curly': 'error',
         'eol-last': 'error',
-        eqeqeq: ['error', 'smart'],
+        'eqeqeq': ['error', 'smart'],
         'guard-for-in': 'error',
         'id-blacklist': [
           'error',
@@ -287,7 +237,7 @@ module.exports = {
         'prefer-arrow/prefer-arrow-functions': 'off',
         'prefer-const': 'error',
         'quote-props': ['error', 'consistent-as-needed'],
-        radix: 'error',
+        'radix': 'error',
         'rxjs/no-create': 'error',
         'rxjs/no-internal': 'error',
         'space-before-function-paren': [
@@ -352,29 +302,23 @@ module.exports = {
           'error',
           {
             types: {
-              Object: {
-                message:
-                  'Avoid using the `Object` type. Did you mean `object`?',
+              'Object': {
+                message: 'Avoid using the `Object` type. Did you mean `object`?',
               },
-              Function: {
-                message:
-                  'Avoid using the `Function` type. Prefer a specific function type, like `() => void`.',
+              'Function': {
+                message: 'Avoid using the `Function` type. Prefer a specific function type, like `() => void`.',
               },
-              Boolean: {
-                message:
-                  'Avoid using the `Boolean` type. Did you mean `boolean`?',
+              'Boolean': {
+                message: 'Avoid using the `Boolean` type. Did you mean `boolean`?',
               },
-              Number: {
-                message:
-                  'Avoid using the `Number` type. Did you mean `number`?',
+              'Number': {
+                message: 'Avoid using the `Number` type. Did you mean `number`?',
               },
-              String: {
-                message:
-                  'Avoid using the `String` type. Did you mean `string`?',
+              'String': {
+                message: 'Avoid using the `String` type. Did you mean `string`?',
               },
-              Symbol: {
-                message:
-                  'Avoid using the `Symbol` type. Did you mean `symbol`?',
+              'Symbol': {
+                message: 'Avoid using the `Symbol` type. Did you mean `symbol`?',
               },
               '{}': false,
             },

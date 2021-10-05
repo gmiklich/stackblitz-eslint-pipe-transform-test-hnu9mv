@@ -1,3 +1,7 @@
 {
-  "singleQuote": true
+  "$schema": "https://json.schemastore.org/prettierrc",
+  "singleQuote": true,
+  "trailingComma": "all",
+  "printWidth": 120,
+  "quoteProps": "consistent"
 }

@@ -1,13 +1,12 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-const emptyGuid = '00000000-0000-0000-0000-000000000000';
+const magicValue = '123';
 
 @Pipe({
-  // eslint-disable-next-line @angular-eslint/pipe-prefix
-  name: 'tenantStatus',
+  name: 'appTestStatus',
 })
-export class TenantStatusPipe implements PipeTransform {
+export class TestStatusPipe implements PipeTransform {
   transform(value: string): string {
-    return value === emptyGuid ? 'unassigned' : 'assigned';
+    return value === magicValue ? 'success' : 'whoops';
   }
 }

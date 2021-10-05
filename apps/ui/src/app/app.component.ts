@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'stackblitz-nx-test-root',
+  selector: 'stackblitz-eslint-pipe-transform-test-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })

@@ -10,19 +10,19 @@
       },
       "root": "apps/ui",
       "sourceRoot": "apps/ui/src",
-      "prefix": "stackblitz-nx-test",
+      "prefix": "stackblitz-eslint-pipe-transform-test",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/apps/ui",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.app.json",
+            "index": "apps/ui/src/index.html",
+            "main": "apps/ui/src/main.ts",
+            "polyfills": "apps/ui/src/polyfills.ts",
+            "tsConfig": "apps/ui/tsconfig.app.json",
             "aot": true,
             "assets": ["apps/ui/src/favicon.ico", "apps/ui/src/assets"],
-            "styles": ["src/styles.scss"],
+            "styles": ["apps/ui/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -109,25 +109,65 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": ["apps/ui-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/ui-e2e/**"]
+            "lintFilePatterns": ["apps/ui-e2e/**/*spec.ts"]
           }
         }
       }
     }
   },
   "cli": {
+    "warnings": {
+      "versionMismatch": false
+    },
     "defaultCollection": "@nrwl/angular"
   },
   "schematics": {
-    "@nrwl/angular:application": {
+    "@angular/cdk:drag-drop": {
+      "styleext": "scss"
+    },
+    "@angular/material:dashboard": {
+      "styleext": "scss"
+    },
+    "@angular/material:table": {
+      "styleext": "scss"
+    },
+    "@angular/material:nav": {
+      "styleext": "scss"
+    },
+    "@angular/material:tree": {
+      "styleext": "scss"
+    },
+    "@angular/material:addressForm": {
+      "styleext": "scss"
+    },
+    "@nrwl/schematics:application": {
+      "style": "scss",
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/schematics:library": {
       "unitTestRunner": "jest",
-      "e2eTestRunner": "cypress"
+      "style": "scss"
+    },
+    "@schematics/angular:component": {
+      "style": "scss"
+    },
+    "@nrwl/angular:application": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "none",
+      "directory": "",
+      "tags": ""
     },
     "@nrwl/angular:library": {
+      "style": "scss",
+      "linter": "eslint",
       "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {
+      "style": "scss"
     }
   },
   "defaultProject": "ui"

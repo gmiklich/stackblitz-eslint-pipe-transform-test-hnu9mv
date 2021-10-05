@@ -1,6 +1,6 @@
 {
   "extends": ["../../.eslintrc.js"],
-  "ignorePatterns": ["!**/*"],
+  "ignorePatterns": ["!**/*", "src/environments/*"],
   "overrides": [
     {
       "files": ["*.ts"],
@@ -12,19 +12,11 @@
         "project": ["apps/ui/tsconfig.*?.json"]
       },
       "rules": {
-        "@angular-eslint/directive-selector": [
-          "error",
-          {
-            "type": "attribute",
-            "prefix": "hxp-onboarding-support",
-            "style": "camelCase"
-          }
-        ],
         "@angular-eslint/component-selector": [
           "error",
           {
             "type": "element",
-            "prefix": "hxp-onboarding-support",
+            "prefix": "stackblitz-eslint-pipe-transform-test",
             "style": "kebab-case"
           }
         ]

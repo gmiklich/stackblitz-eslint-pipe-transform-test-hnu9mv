@@ -1,5 +1,5 @@
 {
-  "name": "stackblitz-nx-test",
+  "name": "stackblitz-eslint-pipe-transform-test",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -25,7 +25,7 @@
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
-    "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points"
+    "postinstall": "ngcc"
   },
   "private": true,
   "dependencies": {
@@ -47,7 +47,6 @@
     "rxjs": "~6.6.3",
     "tslib": "^2.0.0",
     "tsutils": "3.17.1",
-    "typescript": ">=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
@@ -69,6 +68,8 @@
     "@types/jest": "26.0.8",
     "@types/jquery": "^3.3.31",
     "@types/node": "14.14.33",
+    "@typescript-eslint/eslint-plugin": "4.28.5",
+    "@typescript-eslint/parser": "4.28.5",
     "dotenv": "10.0.0",
     "ts-jest": "27.0.3",
     "ts-node": "~9.1.1",
